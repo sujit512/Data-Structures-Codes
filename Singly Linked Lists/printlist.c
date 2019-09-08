@@ -92,14 +92,6 @@ int main(){
         break;
     }
     head = makelist(n);
-    int k;
-    scanf("%d",&k);
-    struct Node* ptr = NULL;
-    ptr = head;
-    for (int i = 0; i < k; ++i)
-    {
-      ptr = ptr->next;
-    }
     forwardPrint(head);
     backwardPrint(head);
     t--;
