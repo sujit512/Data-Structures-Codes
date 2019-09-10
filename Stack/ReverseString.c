@@ -26,3 +26,71 @@ tneitouQedoC
 edoC﻿
 */
 
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+#define SIZE 10
+
+int Stack[SIZE], top=-1;
+
+int isFull()
+{
+  return top==(SIZE-1);
+}
+
+int isEmpty()
+{
+  return top==-1;
+}
+
+int push(int item)
+{
+  if (isFull())
+  {
+    return -1;
+  }
+  Stack[++top] = item;
+}
+
+int pop()
+{
+  int temp;
+  if (isEmpty())
+  {
+    return -1;
+  }
+  temp=Stack[top--];
+  return temp;
+}
+
+char* reverseString(char *s)
+{	int len = strlen(s);
+	char *str = malloc(len*sizeof(char));
+ 	for(int i=0;i<len;i++){
+      push(s[i]);
+    }
+ 	for(int i=0;i<len;i++){
+      str[i] = pop();
+    }
+ return str;
+}
+
+int main()
+{
+	int t;
+	scanf("%d",&t);
+	while(t!=0){
+		int n;
+		scanf("%d",&n);
+		for(int i=0;i<n;i++){
+			char str[20]; 
+   			gets(str);
+   			char *s = reverseString(str);
+   			printf("%s",s);
+		}
+		t--;
+	}
+	return 0;
+}
+
