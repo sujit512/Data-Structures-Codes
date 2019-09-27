@@ -6,6 +6,14 @@ struct tree{
     struct tree *left;
     struct tree *right;
 };
+void print(struct tree* root){
+    if(root==NULL){
+        return;
+    }
+    print(root->left);
+    printf("%d ",root->data);
+    print(root->right);
+}
 struct tree* makeNode(int item){
     struct tree *new_node = (struct tree*)malloc(sizeof(struct tree));
     new_node->data = item;
@@ -36,5 +44,6 @@ int main(){
     insertNode(root,60);
     insertNode(root,30);
     insertNode(root,90);
+    print(root);
     return 0;
 }
